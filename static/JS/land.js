@@ -47,6 +47,35 @@ document.addEventListener('DOMContentLoaded', function () {
     botaoAnterior.addEventListener('click', produtoAnterior);
   }
 
+  const perfilDropdown = document.querySelector('.perfil-dropdown');
+  const menuDropdown = document.querySelector('.menu-simples');
+
+  function fecharOutrosMenus(menuAberto) {
+    const menus = [perfilDropdown, menuDropdown].filter(Boolean);
+
+    menus.forEach((menu) => {
+      if (menu !== menuAberto && menu.open) {
+        menu.removeAttribute('open');
+      }
+    });
+  }
+
+  if (perfilDropdown) {
+    perfilDropdown.addEventListener('toggle', function () {
+      if (perfilDropdown.open) {
+        fecharOutrosMenus(perfilDropdown);
+      }
+    });
+  }
+
+  if (menuDropdown) {
+    menuDropdown.addEventListener('toggle', function () {
+      if (menuDropdown.open) {
+        fecharOutrosMenus(menuDropdown);
+      }
+    });
+  }
+
   let slideAtual = 1;
   const totalSlides = 3;
 
