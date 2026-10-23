@@ -54,7 +54,15 @@ a {
   right: 40px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: flex-end;
+  gap: 16px;
+  z-index: 20;
+}
+
+.container-usuario > .perfil-dropdown,
+.container-usuario > .menu-simples {
+  position: relative;
+  z-index: 30;
 }
 
 .perfil-btn,
@@ -126,7 +134,7 @@ a {
 .dropdown {
   position: absolute;
   right: 0;
-  top: 35px;
+  top: calc(100% + 12px);
   width: 210px;
   background: #fff;
   border: 1px solid #ddd;
@@ -1025,6 +1033,7 @@ summary::-webkit-details-marker {
   position: absolute;
   top: calc(100% + 14px);
   right: 0;
+  left: auto;
   width: 285px;
   padding: 0;
   background: #ffffff;
@@ -1034,6 +1043,12 @@ summary::-webkit-details-marker {
   overflow: hidden;
   z-index: 2000;
   animation: perfilMenuAparecer 0.18s ease-out;
+}
+
+.container-usuario .menu-simples .dropdown {
+  right: 0;
+  left: auto;
+  z-index: 1500;
 }
 
 .container-usuario .perfil-dropdown:not([open]) > .perfil-menu-card {
